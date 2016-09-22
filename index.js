@@ -26,7 +26,6 @@ module.exports = (options) => {
     return through.obj(function (vinylStream, enc, cb) {
 
         let theBundle;
-        let sourceMap;
 
         opts.rollup.entry = vinylStream.path;
 
@@ -48,13 +47,7 @@ module.exports = (options) => {
             this.push(theBundle);
 
             if (opts.generate.sourceMap) {
-
-                sourceMap = new Vinyl({
-                    path: fileName + '.map',
-                    contents: new Buffer(bundle.map.mappings)
-                });
-
-                this.push(sourceMap);
+                theBundle.sourceMap = bundle.map;
             }
 
             cb(null);
