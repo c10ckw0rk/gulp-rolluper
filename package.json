@@ -1,0 +1,37 @@
+{
+  "name": "gulp-rolluper",
+  "version": "0.0.10",
+  "description": "Rolls up files",
+  "files": [
+    "index.js"
+  ],
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/c10ckw0rk/gulp-version.git"
+  },
+  "keywords": [
+    "gulp-plugin"
+  ],
+  "author": "c10rkw0rk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/c10ckw0rk/gulp-rolluper/issues"
+  },
+  "homepage": "https://github.com/c10ckw0rk/gulp-rolluper#readme",
+  "dependencies": {
+    "lodash": "^4.16.1",
+    "rollup": "^0.36.0",
+    "through2": "^2.0.1",
+    "vinyl": "^1.2.0"
+  },
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "mocha": "^3.0.2",
+    "rimraf": "^2.5.4",
+    "should": "^11.1.0",
+    "stream-assert": "^2.0.3"
+  }
+}
