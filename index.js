@@ -5,7 +5,6 @@ const assign = require('lodash').assign;
 const rollup = require('rollup');
 const fs = require('fs');
 const path = require('path');
-const Vinyl = require('vinyl');
 
 function unixStylePath(filePath) {
   return filePath.split(path.sep).join('/');
@@ -29,8 +28,6 @@ module.exports = (options) => {
 
     return through.obj(function (vinylStream, enc, cb) {
 
-        let theBundle;
-
         opts.rollup.entry = vinylStream.path;
 
         if (!fs.existsSync(vinylStream.path)) error('entry point does not exist', vinylStream.path);
@@ -38,8 +35,7 @@ module.exports = (options) => {
         rollup.rollup(opts.rollup).then(bundle => {
 
             bundle = bundle.generate(opts.generate);
-            
-            // const dir = path.dirname(vinylStream.path);
+
             const fileExt = path.extname(vinylStream.relative);
             const fileName = path.basename(vinylStream.path, fileExt);
 
@@ -50,12 +46,11 @@ module.exports = (options) => {
                 bundle.map.file = unixStylePath(vinylStream.relative);
                 bundle.map.sources = bundle.map.sources.map(fileName => {
                     return unixStylePath(path.relative(vinylStream.base, fileName));
-                });                
+                });
                 vinylStream.sourceMap = bundle.map;
             }
 
             this.push(vinylStream);
-
             cb(null);
 
         }).catch(e => {
