@@ -7,7 +7,7 @@ const fs = require('fs');
 const path = require('path');
 
 function unixStylePath(filePath) {
-  return filePath.split(path.sep).join('/');
+    return filePath.split(path.sep).join('/');
 }
 
 module.exports = (options) => {
@@ -35,11 +35,6 @@ module.exports = (options) => {
         rollup.rollup(opts.rollup).then(bundle => {
 
             bundle = bundle.generate(opts.generate);
-
-            const fileExt = path.extname(vinylStream.relative);
-            const fileName = path.basename(vinylStream.path, fileExt);
-
-            vinylStream.path = fileName + fileExt;
             vinylStream.contents = new Buffer(bundle.code);
 
             if (opts.generate.sourceMap) {
