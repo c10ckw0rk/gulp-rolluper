@@ -22,10 +22,10 @@
   },
   "homepage": "https://github.com/c10ckw0rk/gulp-rolluper#readme",
   "dependencies": {
-    "lodash": "^4.16.1",
-    "rollup": "^0.36.0",
-    "through2": "^2.0.1",
-    "vinyl": "^1.2.0"
+    "lodash": "^4.17.4",
+    "rollup": "^0.41.4",
+    "through2": "^2.0.3",
+    "vinyl": "^2.0.1"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
