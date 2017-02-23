@@ -1,6 +1,6 @@
 {
     "name": "gulp-rolluper",
-    "version": "0.0.1",
+    "version": "0.0.15",
     "description": "Rolls up files",
     "files": [
         "index.js"
